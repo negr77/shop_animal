@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shop products</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <p><a href="/animal/new/">Добавить животное</a></p>
+        <h1>Добро пожаловать в мой магазин ЖивотныХ!!</h1>
+        <!-- <img src="{% static 'img/giraffe.jpg' %}" alt="этот жираф на стероидах" width="500">
+        <img src="{% static 'img/monkey.jpg' %}" alt="" width="450" >
+        <p>Этот жираф стоит 120000 из-за того что мы кормим его не молоком а стероидами.</p>
+        <p>Его оссобености это то что он особенный и уникальный, весит он 20 тонн, бегает отлично,жить будет долго</p> -->
+        {% for animal in animals %}
+            <p>{{ animal.name }}</p>
+            <p>{{ animal.species }}</p>
+            <p>{{ animal.age }}</p>
+            <p>{{ animal.description }}</p>
+            <p>{{ animal.price }}</p>
+            <p><img src="{{animal.image.url}}" width="200"></p>
+        {% endfor %}
+    </div>
+</body>
+</html>
